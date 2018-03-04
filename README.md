@@ -7,7 +7,7 @@ Should work for ODROID-XU3 as well.
 ## Installation
 ```Shell
 cd /tmp
-wget https://github.com/Obihoernchen/openmediavault-monitoring-odroid-xu4/archive/master.zip
+wget https://github.com/Obihoernchen/openmediavault-monitoring-odroid-c2/archive/master.zip
 unzip master.zip
 cd openmediavault-monitoring-odroid-xu4-master
 cp -R usr/* /usr
@@ -15,11 +15,11 @@ cp -R var/* /var
 rm -r /tmp/openmediavault-monitoring-odroid-xu4-master
 cd /
 
-chmod +x /usr/local/bin/cpu{temp,fanspeed} /usr/share/openmediavault/mkconf/collectd.d/cpu{freq,temp,fanspeed}
+chmod +x /usr/local/bin/cpu{freq,temp} /usr/share/openmediavault/mkconf/collectd.d/cpu{freq,temp}
 omv-mkconf collectd
 
-chown openmediavault-webgui:openmediavault-webgui /var/www/openmediavault/js/omv/module/admin/diagnostic/system/plugin/Cpu{Temperature,Frequency,FanSpeed}.js
-chmod 644 /var/www/openmediavault/js/omv/module/admin/diagnostic/system/plugin/Cpu{Temperature,Frequency,FanSpeed}.js
+chown openmediavault-webgui:openmediavault-webgui /var/www/openmediavault/js/omv/module/admin/diagnostic/system/plugin/Cpu{Temperature,Frequency}.js
+chmod 644 /var/www/openmediavault/js/omv/module/admin/diagnostic/system/plugin/Cpu{Temperature,Frequency}.js
 
 source /usr/share/openmediavault/scripts/helper-functions && omv_purge_internal_cache
 
