@@ -8,10 +8,10 @@ Some additional RRDTool graphs for OpenMediaVault Monitoring for your ODROID-C2.
 cd /tmp
 wget https://github.com/Obihoernchen/openmediavault-monitoring-odroid-c2/archive/master.zip
 unzip master.zip
-cd openmediavault-monitoring-odroid-xu4-master
+cd openmediavault-monitoring-odroid-c2-master
 cp -R usr/* /usr
 cp -R var/* /var
-rm -r /tmp/openmediavault-monitoring-odroid-xu4-master
+rm -r /tmp/openmediavault-monitoring-odroid-c2-master
 cd /
 
 chmod +x /usr/local/bin/cpu{freq,temp} /usr/share/openmediavault/mkconf/collectd.d/cpu{freq,temp}
