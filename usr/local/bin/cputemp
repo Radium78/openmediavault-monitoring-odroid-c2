@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Read CPU temperature of ODROID-XU3/4
+# Read CPU temperature of ODROID-C2
 # There are 2 sensors available:
 # /sys/devices/virtual/thermal/thermal_zone0/temp
 # /sys/devices/10060000.tmu/temp
