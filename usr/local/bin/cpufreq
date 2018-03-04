@@ -8,7 +8,7 @@ HOSTNAME="${COLLECTD_HOSTNAME:-localhost}"
 INTERVAL="${COLLECTD_INTERVAL:-60}"
 
 while sleep "$INTERVAL"; do
-	VALUE="$(($(cat /sys/devices/system/cpu/cpu0/cpufreq)/1000))"
+	VALUE="$($(cat /sys/devices/system/cpu/cpu0/cpufreq))"
 	if [ $? -ne 0 ]; then
 		VALUE="U"
 	fi
