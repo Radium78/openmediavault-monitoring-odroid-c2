@@ -28,6 +28,6 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.CpuTemperature", {
 	extend: "OMV.workspace.panel.RrdGraph",
 	alias: "omv.plugin.diagnostic.system.cputemperature",
 
-	title: _("CPU temperature"),
+	title: _("CPU Temperature"),
 	rrdGraphName: "cputemp"
 });
