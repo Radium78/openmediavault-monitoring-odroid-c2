@@ -28,8 +28,10 @@ OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
 
 cat <<EOF >> ${OMV_COLLECTD_CONFIG}
-LoadPlugin cpufreq
-
+LoadPlugin exec
+<Plugin exec>
+        Exec "nobody" "/usr/local/bin/cpufreq"
+</Plugin>
 EOF
 
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
@@ -41,7 +43,7 @@ EOF
 for ucperiod in HOUR DAY WEEK MONTH YEAR; do
 	lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')
 	cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
-rrdtool graph \${IMGDIR}/cpufreq-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${TITLE_CPUFREQ}\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --vertical-label Hz \
+rrdtool graph \${IMGDIR}/cpufreq-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${TITLE_CPUFREQ}\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --vertical-label kHz \
   DEF:cpufreq0_avg=\${DATA}/cpufreq/cpufreq-0.rrd:value:AVERAGE \
   DEF:cpufreq0_min=\${DATA}/cpufreq/cpufreq-0.rrd:value:MIN \
   DEF:cpufreq0_max=\${DATA}/cpufreq/cpufreq-0.rrd:value:MAX \
