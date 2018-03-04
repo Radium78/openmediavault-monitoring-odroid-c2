@@ -1,9 +1,8 @@
 #!/bin/sh
 
 # Read CPU temperature of ODROID-C2
-# There are 2 sensors available:
+# There are 1 sensors available:
 # /sys/devices/virtual/thermal/thermal_zone0/temp
-# /sys/devices/10060000.tmu/temp
 
 HOSTNAME="${COLLECTD_HOSTNAME:-localhost}"
 INTERVAL="${COLLECTD_INTERVAL:-60}"
