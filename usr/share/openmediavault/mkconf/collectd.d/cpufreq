@@ -43,7 +43,7 @@ EOF
 for ucperiod in HOUR DAY WEEK MONTH YEAR; do
 	lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')
 	cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
-rrdtool graph \${IMGDIR}/cpufreq-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${TITLE_CPUFREQ}\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --vertical-label kHz \
+rrdtool graph \${IMGDIR}/cpufreq-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${TITLE_CPUFREQ}\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --vertical-label Hz \
   DEF:cpufreq0_avg=\${DATA}/cpufreq/cpufreq-0.rrd:value:AVERAGE \
   DEF:cpufreq0_min=\${DATA}/cpufreq/cpufreq-0.rrd:value:MIN \
   DEF:cpufreq0_max=\${DATA}/cpufreq/cpufreq-0.rrd:value:MAX \
