@@ -28,6 +28,6 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.CpuFrequency", {
 	extend: "OMV.workspace.panel.RrdGraph",
 	alias: "omv.plugin.diagnostic.system.cpufrequency",
 
-	title: _("CPU frequency"),
+	title: _("CPU Frequency"),
 	rrdGraphName: "cpufreq"
 });
